@@ -127,12 +127,17 @@ var user;
 var showUser ="";
 var users=["Mean Sareth", "Dara JJ", "Meas Saly"];
 function addUser(user) {
-  users.push(user);
+  if (document.getElementById('addUser').value!="") {
+    user=document.getElementById('addUser').value;
+    users.push(user);
+    document.getElementById('demo').innerHTML=users;
+  } else {
+    alert('You have to input a user');
+  }
 }
 function removeUser(user){
   users.pop(user);
 }
-
 for(let myUser of users){
    showUser += myUser + "<br>"
   document.getElementById('demo').innerHTML=showUser;
